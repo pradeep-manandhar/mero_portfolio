@@ -1,7 +1,56 @@
-
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
 <style>
     .btn-secondary{
         margin:10px;
+    }
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    table,
+    th,
+    td {
+        border: 2px solid black;
+    }
+
+    tr:hover {
+        background-color: #837f7fff;
+    }
+
+    th {
+        background-color: #5a5e5aff;
+        color: white;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #b5adadff;
+    }
+    #insert{
+
+        width: 20%;
+
+        padding: 5px;
+        margin: 5px;
+
+    }
+    a{
+        text-decoration: none;
+        color:#273043;
+
+    }
+    a:hover{
+        color:#9197ae;
     }
 </style>
 <h1>Skills</h1>
@@ -19,7 +68,7 @@
             <th>Action</th>
         </tr>
     </thead>
-    
+
 
 </table>
 

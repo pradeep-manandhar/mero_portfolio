@@ -1,7 +1,56 @@
-
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
 <style>
     .btn-warning{
         margin:10px;
+    }
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    table,
+    th,
+    td {
+        border: 2px solid black;
+    }
+
+    tr:hover {
+        background-color: #837f7fff;
+    }
+
+    th {
+        background-color: #5a5e5aff;
+        color: white;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #b5adadff;
+    }
+    #insert{
+
+        width: 20%;
+
+        padding: 5px;
+        margin: 5px;
+
+    }
+    a{
+        text-decoration: none;
+        color:#273043;
+
+    }
+    a:hover{
+        color:#9197ae;
     }
 </style>
 <h1>Experience</h1>
@@ -20,24 +69,7 @@
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
-        <?php foreach($datas as $data):?>
-        <tr>
-            <td><?php echo $data['fullname'];?></td>
-            <td><?php echo $data["title"];?></td>
-            <td><?php echo $data["organization"];?></td>
-            <td><?php echo $data["location"];?></td>
-            <td><?php echo $data["description"];?></td>
-            <td><?php echo $data["start_date"];?></td>
-            <td><?php echo $data["end_date"];?></td>
-            <td>
-                <a href="/core_php/collab-training/index.php?page=view-experience&id=<?php echo$data["id"];?>" class="btn btn-success">View</a>
-                <a href="/core_php/collab-training/index.php?page=edit-experience&id=<?php echo$data["id"];?>" class="btn btn-info">Edit</a>
-                <a class="btn btn-danger" data-id="<?php echo $data["id"] ?>">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach;?>
-    </tbody>
+
 
 </table>
 
