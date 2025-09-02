@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Register Form</title>
-</head>
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+@extends('layout.main')
+  
+@section('title')
+    <title>Register</title>
+@endsection
 
-<body>
+@section('body')
   <div class="wrapper" >
     <div class="container" style="height: 100%;">
       <div class="sub-container">
@@ -20,20 +18,28 @@
             <div class="errors">
             </div>
           </div>
-
-          <form action="/collab-training/router.php?route=auth/register" method="POST" id="register-form" enctype='multipart/form-data'>
-
+          @if($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                  @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+          @endif
+          <form action="/register" method="POST" id="register-form" enctype='multipart/form-data'>
+            @csrf
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" class="form-control"
+                <input type="text" id="fullname" name="fullname" class="form-control" value="{{ old('fullname') }}"
                   placeholder="Enter your full name">
                 <span class="error-section" hidden></span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="username">Username</label>
-                <input type="username" id="username" name="username" class="form-control"
+                <input type="username" id="username" name="username" class="form-control" value="{{ old('username') }}"
                   placeholder="Enter your username">
                 <span class="error-section" hidden></span>
               </div>
@@ -42,14 +48,14 @@
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="email">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" value="{{ old('email') }}">
                 <span class="error-section" hidden></span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="phone-number">Phone Number</label>
                 <input type="text" id="phone-number" name="phone_number" class="form-control"
-                  placeholder="Enter your phone number">
+                  placeholder="Enter your phone number" value="{{ old('phone_number') }}">
                 <span class="error-section" hidden></span>
               </div>
 
@@ -106,9 +112,8 @@
       </div>
     </div>
   </div>
+@endsection
 
-  <script src="{{ asset('/js/validateFormJquery.js') }" type="module"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</body>
-
-</html>
+@section('footer')
+<footer></footer>
+@endsection
