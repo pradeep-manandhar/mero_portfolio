@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skills;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -32,8 +33,18 @@ class SkillController extends Controller
     {
         //
         $request->validate([
-            'skill_name'=>'required|string|max:255'
+            'skill_name'=>'required|string|max:255',
+            'skill_level'=>'required|in:beginner,intermediate,expert',
+            'skill_category'=>'required|in:programming,cloud computing,cybersecurity,networking,hardware,machine learning/AI,data mining,database management',
         ]);
+
+        Skills::create([
+            'skill_name'=>$request->skill_name,
+            'skill_category'=>$request->skill_category,
+            'skill_level'=>$request->skill_level,
+        ]);
+
+        return redirect('/skills')->with(['message'=>"success on adding new skill"]);
     }
 
     /**

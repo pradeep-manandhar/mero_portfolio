@@ -21,7 +21,7 @@ Route::get("/user_role", function(){
 });
 
 //Skills routes
-Route::get('/skills', [SkillController::class,'index']);
+Route::get('/skills', [SkillController::class,'index'])->name('skills');
 Route::get('/skills/create', [SkillController::class,'create_form'])->name('skills.create');
 Route::post('/skills/create',[SkillController::class,'store']);
 

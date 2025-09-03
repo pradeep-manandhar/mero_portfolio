@@ -5,7 +5,7 @@
   <a href="#">Users</a>
   <a href="#">User Roles</a>
   <a href="#">Projects</a>
-  <a href="#">Skills</a>
+  <a href="{{route('skills')}}">Skills</a>
   <a href="#">Experience</a>
 </nav>
 

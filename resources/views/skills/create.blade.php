@@ -1,3 +1,4 @@
+
 @extends('layout.admin')
 @section('body')
 <head>
@@ -54,7 +55,9 @@
         <label for="skill_category" class="form-label">Skill Category:</label>
         <select name="skill_category" id="skill_category" class="form-select" aria-label="Default select example" value="{{old('skill_category')}}">
             <option value="">Select the skill category:</option>
-
+            @foreach(\App\Models\Skills::categories as $category)
+                <option value="{{$category}}">{{ucfirst($category)}}</option>
+            @endforeach
         </select>
     </div>
 
@@ -62,6 +65,9 @@
         <label for="skill_level">Skill Level:</label>
         <select name="skill_level" id="skill_level" class="form-select" aria-label="Default select example" value="{{old('skill_level')}}" >
             <option value="">Select the skill level:</option>
+            @foreach(\App\Models\Skills::levels as $level)
+                <option value="{{$level}}">{{ucfirst($level)}}</option>
+            @endforeach
 
         </select>
     </div>
