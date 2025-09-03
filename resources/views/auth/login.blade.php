@@ -6,7 +6,8 @@
 
 @section('body')
 <h2>Login</h2>
-  <form action="#" method="POST" id="login-form" class="login-container">
+  <form action="/login" method="POST" class="login-container">
+    @csrf
     <label for="email">email:</label><br>
     <input type="text" id="email" name="email" placeholder="Please enter your e-mail address"><br><br>
 

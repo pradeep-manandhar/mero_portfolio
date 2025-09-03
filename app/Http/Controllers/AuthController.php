@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -14,6 +15,27 @@ class AuthController extends Controller
 
     public function registerPage(){
         return view('auth.register');
+    }
+
+    public function login(Request $request){
+        $validated = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        //check in DB
+        $user = User::where('email', $request->email)->get();
+        if (!$user) {
+            return redirect()->back()->with(['error'=> 'user not found']);
+        }
+
+        $attempt = Auth::attempt($validated);
+        
+        if($attempt == false){
+            return redirect()->back()->with(['error'=> 'password not correct']);
+        }
+
+        return redirect('/skills')->with(['success' => "successfully logged in"]);
     }
 
     public function register(Request $request){
