@@ -12,8 +12,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
-        return view('skills');
+        //fetch
+        $data = Skills::all();
+        return view('skills', compact('data'));
     }
 
     /**

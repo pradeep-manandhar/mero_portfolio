@@ -68,8 +68,19 @@
             <th>Action</th>
         </tr>
     </thead>
-
-
+    <tbody>
+        @foreach($data as $value)
+        <tr>
+            <td>Username</td>
+            <td>{{ $value->skill_name }}</td>
+            <td>{{ $value->skill_category }}</td>
+            <td>{{ $value->skill_level }}</td>
+            <td>now</td>
+            <td>now</td>
+            <td>jackson</td>
+        </tr>
+        @endforeach
+    </tbody>
 </table>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"> </script>
