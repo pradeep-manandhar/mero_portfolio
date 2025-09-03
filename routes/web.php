@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,14 +19,17 @@ Route::get('/user' , function(){
 Route::get("/user_role", function(){
     return view("user_role");
 });
-Route::get('/skills', function () {
-    return view('skills');
-});
 
+//Skills routes
+Route::get('/skills', [SkillController::class,'index']);
+Route::get('/skills/create', [SkillController::class,'create'])->name('skills.create');
+
+//Experience Routes
 Route::get('/experience', function () {
     return view('experience');
 });
 
+//Project routes
 Route::get('/projects', function () {
     return view('projects');
 });

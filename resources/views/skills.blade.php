@@ -57,7 +57,7 @@
     }
 </style>
 <h1>Skills</h1>
-<a href="/core_php/collab-training/index.php?page=create-skill" class="btn btn-secondary">Insert New Skill</a>
+<a href="{{route('skills.create')}}" class="btn btn-primary">Insert New Skill</a>
 
 <table class="table table-striped table-bordered align-middle">
     <thead class="table-dark">
