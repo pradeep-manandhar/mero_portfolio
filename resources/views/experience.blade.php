@@ -62,7 +62,7 @@
         }
     </style>
     <h1>Experience</h1>
-    <a href="/core_php/collab-training/index.php?page=create-experience" class="btn btn-warning">Insert New Experience</a>
+    <a href="{{route('experience.create')}}" class="btn btn-warning">Insert New Experience</a>
 
     <table class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
@@ -88,10 +88,10 @@
                     <td>{{ $datas->start_date }}</td>
                     <td>{{ $datas->end_date }}</td>
                     <td>
-                    <a href="" type="button" class="btn btn-primary">View</a>
+                    <a href="" type="button" class="btn btn-info">View</a>
                     <a href="" class="btn btn-success">Edit</a>
                     <a href="" class="btn btn-danger">Delete</a>
-                </td>
+                    </td>
 
                 </tr>
             @endforeach

@@ -30,7 +30,9 @@ Route::get('/skills/create', [SkillController::class,'create_form'])->name('skil
 Route::post('/skills/create',[SkillController::class,'store']);
 
 //Experience Routes
-Route::get('/experience', [ExperienceController::class,'index']);
+Route::get('/experience', [ExperienceController::class,'index'])->name('experience');
+Route::get('/experience/create',[ExperienceController::class,'create_form'])->name('experience.create');
+Route::post('/experience/create',[ExperienceController::class,'store']);
 
 //Project routes
 Route::get('/projects', function () {
