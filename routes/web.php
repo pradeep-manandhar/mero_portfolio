@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,4 @@ Route::get('/experience/create',[ExperienceController::class,'create_form'])->na
 Route::post('/experience/create',[ExperienceController::class,'store']);
 
 //Project routes
-Route::get('/projects', function () {
-    return view('projects');
-});
+Route::get('/projects', [ProjectController::class,'index'])->name('project');
