@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,7 @@ Route::get('/skills/create', [SkillController::class,'create_form'])->name('skil
 Route::post('/skills/create',[SkillController::class,'store']);
 
 //Experience Routes
-Route::get('/experience', function () {
-    return view('experience');
-});
+Route::get('/experience', [ExperienceController::class,'index']);
 
 //Project routes
 Route::get('/projects', function () {
