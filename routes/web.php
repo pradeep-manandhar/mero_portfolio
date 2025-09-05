@@ -37,3 +37,5 @@ Route::post('/experience/create',[ExperienceController::class,'store']);
 
 //Project routes
 Route::get('/projects', [ProjectController::class,'index'])->name('project');
+Route::get('/projects/create',[ProjectController::class,'create_form'])->name('projects.create');
+Route::post('/projects/create',[ProjectController::class,'create']);

@@ -55,7 +55,7 @@
 
     <h1>Projects</h1>
     <div id="insert">
-        <a class="btn btn-dark" href="/core_php/collab-training/index.php?page=create_project&action=create">Insert New
+        <a class="btn btn-dark" href="{{route('projects.create')}}">Insert New
             Project</a>
     </div>
 

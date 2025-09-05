@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    public const statuses=['starting','ongoing','completed'];
     //
     protected $fillable=[
         'name',

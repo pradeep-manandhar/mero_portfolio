@@ -17,12 +17,34 @@ class ProjectController extends Controller
         return view('/projects',compact('datas'));
     }
 
+    public function create_form(){
+        return view('projects.create');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $request->validate([
+            'name'=>'required|string|max:255',
+            'description'=>'required|string|max:255',
+            'status'=>'required|string|max:255',
+            // 'image'=>'required|string|max:255',
+            'start_date'=>'required|date|before:end_date',
+            'end_date'=>'nullable|date|after:start_date',
+        ]);
+        Project::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'status'=>$request->status,
+            // 'image'=>$request->image,
+            'start_date'=>$request->start_date,
+            'end_date'=>$request->end_date,
+        ]);
+
+        return redirect('/projects')->with('message','success on adding new project');
     }
 
     /**

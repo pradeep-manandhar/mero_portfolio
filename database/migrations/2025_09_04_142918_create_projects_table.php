@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->enum('status',['starting','ongoing','completed']);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->timestamps();
