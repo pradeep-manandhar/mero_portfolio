@@ -1,0 +1,37 @@
+@extends('layout.admin')
+@section('body')
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add Student with Phone</h1>
+
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('students.store') }}" method="POST">
+        @csrf
+        <label>Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>Phone Number:</label>
+        <input type="text" name="phone_number" required><br><br>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</body>
+</html>
+
+@endsection

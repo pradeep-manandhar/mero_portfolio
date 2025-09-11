@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -39,3 +40,9 @@ Route::post('/experience/create',[ExperienceController::class,'store']);
 Route::get('/projects', [ProjectController::class,'index'])->name('project');
 Route::get('/projects/create',[ProjectController::class,'create_form'])->name('projects.create');
 Route::post('/projects/create',[ProjectController::class,'create']);
+
+//Students routes
+Route::get('/students',[StudentController::class,'index'])->name('students.index');
+Route::get('/students/create',[StudentController::class,'create'])->name('students.create');
+Route::post('/students',[StudentController::class,'store'])->name('students.store');
+
