@@ -19,6 +19,7 @@
                     <td>Name</td>
                     <td>Email</td>
                     <td>Phone Number</td>
+                    <td>Actions</td>
                 </tr>
 
             </thead>
@@ -29,6 +30,11 @@
                         <td>{{$student->name}}</td>
                         <td>{{$student->email}}</td>
                         <td>{{$student->phone?->phone_number?? 'No phone' }}</td>
+                        <td>
+                            <a href="" type="button" class="btn btn-info">View</a>
+                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
 

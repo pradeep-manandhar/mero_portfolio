@@ -5,6 +5,7 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,4 +46,11 @@ Route::post('/projects/create',[ProjectController::class,'create']);
 Route::get('/students',[StudentController::class,'index'])->name('students.index');
 Route::get('/students/create',[StudentController::class,'create'])->name('students.create');
 Route::post('/students',[StudentController::class,'store'])->name('students.store');
+
+//Author routes
+Route::get('/authors',[AuthorController::class,'index'])->name('authors.index');
+Route::get('/authors/create',[AuthorController::class,'create'])->name('authors.create');
+Route::post('/authors',[AuthorController::class,'store'])->name('authors.store');
+
+
 
