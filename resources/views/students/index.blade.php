@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        <h1>Students info</h1>
         <a href="{{route('students.create')}}" class="btn btn-success">Add new Student</a><br>
         <br>
         <table class="table table-striped table-bordered align-middle">
