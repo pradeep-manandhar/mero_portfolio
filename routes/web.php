@@ -6,6 +6,10 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\ProgrammerController;
+use App\Http\Controllers\CourseController;
+
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -51,6 +55,16 @@ Route::post('/students',[StudentController::class,'store'])->name('students.stor
 Route::get('/authors',[AuthorController::class,'index'])->name('authors.index');
 Route::get('/authors/create',[AuthorController::class,'create'])->name('authors.create');
 Route::post('/authors',[AuthorController::class,'store'])->name('authors.store');
+
+//Programmers routes
+Route::get('/programmers',[ProgrammerController::class,'index'])->name('programmers.index');
+Route::get('/programmers/create',[ProgrammerController::class,'create'])->name('programmers.create');
+Route::post('/programmers',[ProgrammerController::class,'store'])->name('programmers.store');
+
+//Course routes
+Route::get('/courses',[CourseController::class,'index'])->name('courses.index');
+Route::get('/courses/create',[CourseController::class,'create'])->name('courses.create');
+Route::post('/courses',[CourseController::class,'store'])->name('courses.store');
 
 
 

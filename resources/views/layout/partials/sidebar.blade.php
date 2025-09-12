@@ -9,6 +9,10 @@
   <a href="{{route('experience')}}">Experience</a>
   <a href="{{route('students.index')}}">Students</a>
   <a href="{{route('authors.index')}}">Authors</a>
+  <a href="{{route('programmers.index')}}">Programmers</a>
+  <a href="{{route('courses.index')}}">Courses</a>
+
+
 </nav>
 
 
