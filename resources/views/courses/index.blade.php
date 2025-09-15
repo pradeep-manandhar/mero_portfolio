@@ -20,7 +20,7 @@
                         {{ $course->programmers->pluck('name')->join(', ') }}
                     </td>
                     <td>
-                        <a href="" type="button" class="btn btn-info">View</a>
+                        <a href="{{route('courses.show',$course->id)}}" type="button" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>

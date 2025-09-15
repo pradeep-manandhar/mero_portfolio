@@ -65,6 +65,6 @@ Route::post('/programmers',[ProgrammerController::class,'store'])->name('program
 Route::get('/courses',[CourseController::class,'index'])->name('courses.index');
 Route::get('/courses/create',[CourseController::class,'create'])->name('courses.create');
 Route::post('/courses',[CourseController::class,'store'])->name('courses.store');
-
+Route::get('/courses/show/{id}',[CourseController::class,'show'])->name('courses.show');
 
 

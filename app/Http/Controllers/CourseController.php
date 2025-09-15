@@ -60,6 +60,12 @@ class CourseController extends Controller
     public function show(string $id)
     {
         //
+        $view=Course::with('programmers')->find($id);
+
+        if(!$view){
+            abort(404,'Course not found');
+        }
+        return view('courses.view',compact('view'));
     }
 
     /**
