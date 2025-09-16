@@ -75,9 +75,11 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(string $id)
     {
         //
+        $edit=Project::findOrFail($id);
+        return view('projects.edit',compact('edit'));
     }
 
     /**
@@ -86,6 +88,14 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         //
+        $request->validate([
+            'name'=>'required|string|max:255',
+            'description'=>'required|string|max:255',
+            'status'=>'required|string|max:255',
+            'image'=>'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'start_date'=>'required|date|before:end_date',
+            'end_date'=>'nullable|date|after:start_date',
+        ]);
     }
 
     /**

@@ -45,6 +45,10 @@ Route::post('/experience/create',[ExperienceController::class,'store']);
 Route::get('/projects', [ProjectController::class,'index'])->name('project');
 Route::get('/projects/create',[ProjectController::class,'create_form'])->name('projects.create');
 Route::post('/projects/create',[ProjectController::class,'create']);
+Route::get('/projects/edit/{id}',[ProjectController::class,'edit'])->name('projects.edit');
+Route::put('/projects/edit/{project}',[ProjectController::class,'update'])->name('projects.update');
+
+
 
 //Students routes
 Route::get('/students',[StudentController::class,'index'])->name('students.index');

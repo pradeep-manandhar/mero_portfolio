@@ -84,7 +84,7 @@
                     <td>{{ $data->end_date }}</td>
                     <td>
                         <a href="" type="button" class="btn btn-info">View</a>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="{{route('projects.edit',$data->id)}}" class="btn btn-success">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
