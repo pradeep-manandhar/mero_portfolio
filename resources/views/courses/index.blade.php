@@ -2,7 +2,13 @@
 @section('body')
     <h1>Courses</h1>
 
-    <a href="{{route('courses.create')}}" class="btn btn-warning">Add New Course</a><br><br>
+    <a href="{{ route('courses.create') }}" class="btn btn-warning">Add New Course</a><br><br>
+
+    @if (session('message'))
+        <div class="alert alert-success" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
 
     <table class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
@@ -20,8 +26,8 @@
                         {{ $course->programmers->pluck('name')->join(', ') }}
                     </td>
                     <td>
-                        <a href="{{route('courses.show',$course->id)}}" type="button" class="btn btn-info">View</a>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="{{ route('courses.show', $course->id) }}" type="button" class="btn btn-info">View</a>
+                        <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-success">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

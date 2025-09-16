@@ -67,7 +67,7 @@
 
     <div class="mb-3">
         <label for="project_image" class="form-label"></label>
-        <input class="form-control" type="file" id="formFile" accept="image/*" name="project_image" id="project_image">
+        <input class="form-control" type="file" id="formFile" accept="image/*" name="image" id="project_image">
     </div>
 
     <button type="submit" id="update_btn" class="btn btn-success">Add new Project details</button>

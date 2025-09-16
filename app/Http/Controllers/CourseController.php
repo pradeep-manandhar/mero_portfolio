@@ -74,6 +74,8 @@ class CourseController extends Controller
     public function edit(string $id)
     {
         //
+        $edit=Course::with('programmers')->findOrFail($id);
+        return view('courses.edit',compact('edit'));
     }
 
     /**
@@ -81,7 +83,21 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $data=Course::findOrFail($id);
         //
+        $request->validate(
+            [
+                'title'=>'required|string',
+            ]
+        );
+
+        $data->update(
+            [
+                'title'=>$request->title,
+            ]
+        );
+
+        return redirect()->route('courses.index')->with('message','Course updated successfully');
     }
 
     /**

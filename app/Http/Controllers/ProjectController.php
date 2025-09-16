@@ -31,15 +31,24 @@ class ProjectController extends Controller
             'name'=>'required|string|max:255',
             'description'=>'required|string|max:255',
             'status'=>'required|string|max:255',
-            // 'image'=>'required|string|max:255',
+            'image'=>'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
             'start_date'=>'required|date|before:end_date',
             'end_date'=>'nullable|date|after:start_date',
         ]);
+
+        //for adding image
+        $filename = null;
+
+        if($request->hasFile('image')){
+            $filename=time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/projects'),$filename);
+        }
+
         Project::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'status'=>$request->status,
-            // 'image'=>$request->image,
+            'image'=>$filename,
             'start_date'=>$request->start_date,
             'end_date'=>$request->end_date,
         ]);
