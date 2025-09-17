@@ -55,7 +55,7 @@
 
     <h1>Projects</h1>
     <div id="insert">
-        <a class="btn btn-dark" href="{{route('projects.create')}}">Insert New
+        <a class="btn btn-dark" href="{{ route('projects.create') }}">Insert New
             Project</a>
     </div>
 
@@ -84,8 +84,9 @@
                     <td>{{ $data->end_date }}</td>
                     <td>
                         <a href="" type="button" class="btn btn-info">View</a>
-                        <a href="{{route('projects.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{ route('projects.edit', $data->id) }}" class="btn btn-success">Edit</a>
+                        <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="{{ $data->id }}">
+                            Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -99,7 +100,7 @@
 
     <script>
         $(document).ready(function() {
-            $(".btn-danger").click(function() {
+            $(".delete-btn").click(function() {
                 let id = $(this).data("id");
                 const row = $(this).closest("tr");
 
@@ -114,27 +115,22 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "/core_php/collab-training/routes.php?route=project&action=delete",
-                            type: "POST",
+                            url: "/projects/" + id, // matches your Laravel route
+                            type: "DELETE",
                             data: {
-                                project_id: id
+                                _token: "{{ csrf_token() }}" // important for Laravel
                             },
                             success: function(response) {
-                                let res = JSON.parse(response);
-                                if (res.status === "success") {
-                                    Swal.fire(
-                                        "Deleted!",
-                                        "Deletion successful.",
-                                        "success"
-                                    );
-                                    row.hide();
+                                if (response.status === "success") {
+                                    Swal.fire("Deleted!", response.message, "success");
+                                    row.fadeOut(); // smoothly remove row
                                 } else {
-                                    Swal.fire(
-                                        "Error!",
-                                        "Deletion failed: " + res.message,
-                                        "error"
-                                    );
+                                    Swal.fire("Error!", "Something went wrong.",
+                                        "error");
                                 }
+                            },
+                            error: function() {
+                                Swal.fire("Error!", "Server error occurred.", "error");
                             }
                         });
                     }

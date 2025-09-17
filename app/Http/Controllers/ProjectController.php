@@ -101,8 +101,18 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
-    {
-        //
+    public function destroy($id)
+{
+    $project = Project::findOrFail($id);
+
+    // If project has image, delete it too
+    if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
+        unlink(public_path('uploads/projects/' . $project->image));
     }
+
+    $project->delete();
+
+    return response()->json(['status' => 'success', 'message' => 'Project deleted successfully']);
+}
+
 }
