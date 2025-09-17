@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->input('search'); // get ?search=...
+        $search = $request->input('search');
 
         $datas = Project::query()
             ->when($search, function ($query, $search) {
@@ -97,8 +97,10 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, string $id)
     {
+        $data=Project::findOrFail($id);
+        $filename=$data->image;
         //
         $request->validate([
             'name' => 'required|string|max:255',
@@ -108,6 +110,24 @@ class ProjectController extends Controller
             'start_date' => 'required|date|before:end_date',
             'end_date' => 'nullable|date|after:start_date',
         ]);
+
+        if($request->hasFile('image')){
+            if($data->image && Storage::disk('public')->exists($data->image)){
+                Storage::disk('public')->delete($data->image);
+            }
+            $filename=$request->file('image')->store('uploads/projects','public');
+        }
+
+        $data->update([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'status'=>$request->status,
+            'image'=>$filename,
+            'start_date'=>$request->start_date,
+            'end_date'=>$request->end_date,
+        ]);
+
+        return redirect()->route('project')->with('message','Projects info updated successfully');
     }
 
     /**

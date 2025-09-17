@@ -44,7 +44,7 @@
 
             @if ($edit->image)
                 <div class="mt-2">
-                    <img src="{{ asset('uploads/projects/' . $edit->image) }}" alt="Current Image" width="120">
+                    <img src="{{ asset('Storage/' . $edit->image) }}" alt="Current Image" width="120">
                 </div>
             @endif
         </div>
