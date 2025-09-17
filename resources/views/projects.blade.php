@@ -54,12 +54,16 @@
     </style>
 
     <h1>Projects</h1>
+    <form action="">
+        <div class="mb-3">
+            <label for="search" class="form-label"></label>
+            <input type="text" name="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
     <div id="insert">
         <a class="btn btn-dark" href="{{ route('projects.create') }}">Insert New
             Project</a>
     </div>
-
-
 
     <table class="table table-hover table-striped">
         <thead class="table-dark ">
@@ -83,7 +87,7 @@
                     <td>{{ $data->start_date }}</td>
                     <td>{{ $data->end_date }}</td>
                     <td>
-                        <a href="" type="button" class="btn btn-info">View</a>
+                        <a href="{{ route('projects.show', $data->id) }}" type="button" class="btn btn-info">View</a>
                         <a href="{{ route('projects.edit', $data->id) }}" class="btn btn-success">Edit</a>
                         <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="{{ $data->id }}">
                             Delete</a>

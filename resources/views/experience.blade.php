@@ -62,6 +62,12 @@
         }
     </style>
     <h1>Experience</h1>
+    <form action="">
+        <div class="mb-3">
+            <label for="search" class="form-label"></label>
+            <input type="text" name="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
     <a href="{{route('experience.create')}}" class="btn btn-warning">Insert New Experience</a>
 
     <table class="table table-striped table-bordered align-middle">

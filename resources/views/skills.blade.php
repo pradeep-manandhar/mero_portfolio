@@ -58,6 +58,12 @@
         }
     </style>
     <h1>Skills</h1>
+    <form action="">
+        <div class="mb-3">
+            <label for="search" class="form-label"></label>
+            <input type="text" name="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
     <a href="{{ route('skills.create') }}" class="btn btn-primary">Insert New Skill</a>
 
     <table class="table table-striped table-bordered align-middle">

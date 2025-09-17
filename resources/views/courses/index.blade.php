@@ -1,6 +1,12 @@
 @extends('layout.admin')
 @section('body')
     <h1>Courses</h1>
+    <form action="">
+        <div class="mb-3">
+            <label for="search" class="form-label"></label>
+            <input type="text" name="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
 
     <a href="{{ route('courses.create') }}" class="btn btn-warning">Add New Course</a><br><br>
 

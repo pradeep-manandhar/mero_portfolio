@@ -1,6 +1,12 @@
 @extends('layout.admin')
 @section('body')
     <h1>Authors</h1>
+    <form action="">
+        <div class="mb-3">
+            <label for="search" class="form-label"></label>
+            <input type="text" name="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
     <div>
         <a class="btn btn-success" href="{{ route('authors.create') }}">Insert New Author</a>
     </div>
