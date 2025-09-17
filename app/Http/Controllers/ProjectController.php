@@ -10,14 +10,24 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $datas=Project::all();
-        return view('/projects',compact('datas'));
+        $search = $request->input('search'); // get ?search=...
+
+        $datas = Project::query()
+            ->when($search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhere('status', 'like', "%{$search}%");
+            })
+            ->get();
+
+        return view('projects', compact('datas'));
     }
 
-    public function create_form(){
+
+    public function create_form()
+    {
         return view('projects.create');
     }
 
@@ -28,32 +38,32 @@ class ProjectController extends Controller
     {
         //
         $request->validate([
-            'name'=>'required|string|max:255',
-            'description'=>'required|string|max:255',
-            'status'=>'required|string|max:255',
-            'image'=>'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'start_date'=>'required|date|before:end_date',
-            'end_date'=>'nullable|date|after:start_date',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'start_date' => 'required|date|before:end_date',
+            'end_date' => 'nullable|date|after:start_date',
         ]);
 
         //for adding image
         $filename = null;
 
-        if($request->hasFile('image')){
-            $filename=time().'.'.$request->image->extension();
-            $request->image->move(public_path('uploads/projects'),$filename);
+        if ($request->hasFile('image')) {
+            $filename = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads/projects'), $filename);
         }
 
         Project::create([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'status'=>$request->status,
-            'image'=>$filename,
-            'start_date'=>$request->start_date,
-            'end_date'=>$request->end_date,
+            'name' => $request->name,
+            'description' => $request->description,
+            'status' => $request->status,
+            'image' => $filename,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
         ]);
 
-        return redirect('/projects')->with('message','success on adding new project');
+        return redirect('/projects')->with('message', 'success on adding new project');
     }
 
     /**
@@ -70,8 +80,8 @@ class ProjectController extends Controller
     public function show(string $id)
     {
         //
-        $edit=Project::findOrFail($id);
-        return view('projects.view',compact('edit'));
+        $edit = Project::findOrFail($id);
+        return view('projects.view', compact('edit'));
     }
 
     /**
@@ -80,8 +90,8 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         //
-        $edit=Project::findOrFail($id);
-        return view('projects.edit',compact('edit'));
+        $edit = Project::findOrFail($id);
+        return view('projects.edit', compact('edit'));
     }
 
     /**
@@ -91,12 +101,12 @@ class ProjectController extends Controller
     {
         //
         $request->validate([
-            'name'=>'required|string|max:255',
-            'description'=>'required|string|max:255',
-            'status'=>'required|string|max:255',
-            'image'=>'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'start_date'=>'required|date|before:end_date',
-            'end_date'=>'nullable|date|after:start_date',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'start_date' => 'required|date|before:end_date',
+            'end_date' => 'nullable|date|after:start_date',
         ]);
     }
 
@@ -104,17 +114,16 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-{
-    $project = Project::findOrFail($id);
+    {
+        $project = Project::findOrFail($id);
 
-    // If project has image, delete it too
-    if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
-        unlink(public_path('uploads/projects/' . $project->image));
+        // If project has image, delete it too
+        if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
+            unlink(public_path('uploads/projects/' . $project->image));
+        }
+
+        $project->delete();
+
+        return response()->json(['status' => 'success', 'message' => 'Project deleted successfully']);
     }
-
-    $project->delete();
-
-    return response()->json(['status' => 'success', 'message' => 'Project deleted successfully']);
-}
-
 }

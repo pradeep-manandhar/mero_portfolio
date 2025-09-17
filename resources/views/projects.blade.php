@@ -54,11 +54,12 @@
     </style>
 
     <h1>Projects</h1>
-    <form action="">
+    <form action="{{route('project')}}" method="GET">
         <div class="mb-3">
             <label for="search" class="form-label"></label>
             <input type="text" name="search" class="form-control" placeholder="Search">
         </div>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <div id="insert">
         <a class="btn btn-dark" href="{{ route('projects.create') }}">Insert New
@@ -119,15 +120,15 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "/projects/" + id, // matches your Laravel route
+                            url: "/projects/" + id,
                             type: "DELETE",
                             data: {
-                                _token: "{{ csrf_token() }}" // important for Laravel
+                                _token: "{{ csrf_token() }}"
                             },
                             success: function(response) {
                                 if (response.status === "success") {
                                     Swal.fire("Deleted!", response.message, "success");
-                                    row.fadeOut(); // smoothly remove row
+                                    row.fadeOut();
                                 } else {
                                     Swal.fire("Error!", "Something went wrong.",
                                         "error");
