@@ -27,7 +27,7 @@
 
              <tr>
                 <th class="table-dark">Project Image</th>
-                <td><img src="{{ asset('uploads/projects/' . $edit->image) }}" alt="Current Image" width="120"></td>
+                <td><img src="{{ asset('Storage/' . $edit->image) }}" alt="Current Image" width="120"></td>
             </tr>
         </thead>
     </table>
