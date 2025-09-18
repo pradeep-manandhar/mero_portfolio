@@ -94,9 +94,9 @@
                     <td>{{ $datas->start_date }}</td>
                     <td>{{ $datas->end_date }}</td>
                     <td>
-                    <a href="" type="button" class="btn btn-info">View</a>
+                    <a href="{{route('experience.view',$datas->id)}}" type="button" class="btn btn-info">View</a>
                     <a href="" class="btn btn-success">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="{{$datas->id}}">Delete</a>
                     </td>
 
                 </tr>
@@ -110,7 +110,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
-            $(".btn-danger").click(function() {
+            $(".delete-btn").click(function() {
                 let id = $(this).data("id");
                 const row = $(this).closest("tr");
 
@@ -125,24 +125,24 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "/core_php/collab-training/routes.php?route=experience&action=delete",
-                            type: "POST",
+                            url: "/experience/"+id,
+                            type: "DELETE",
                             data: {
-                                exp_id: id
+                                _token="{{csrf_token()}}"
                             },
                             success: function(response) {
-                                let res = JSON.parse(response);
-                                if (res.status === "success") {
+
+                                if (response.status === "success") {
                                     Swal.fire(
                                         "Deleted!",
-                                        "Deletion successful.",
+                                        response.message,
                                         "success"
                                     );
                                     row.hide();
                                 } else {
                                     Swal.fire(
                                         "Error!",
-                                        "Deletion failed: " + res.message,
+                                        "Deletion failed: " + response.message,
                                         "error"
                                     );
                                 }

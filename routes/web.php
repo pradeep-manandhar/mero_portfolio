@@ -40,6 +40,8 @@ Route::post('/skills/create',[SkillController::class,'store']);
 Route::get('/experience', [ExperienceController::class,'index'])->name('experience');
 Route::get('/experience/create',[ExperienceController::class,'create_form'])->name('experience.create');
 Route::post('/experience/create',[ExperienceController::class,'store']);
+Route::delete('/experience/{id}',[ExperienceController::class,'destroy'])->name('experience.destroy');
+Route::get('/experience/view/{id}',[ExperienceController::class,'show'])->name('experience.view');
 
 //Project routes
 Route::get('/projects', [ProjectController::class,'index'])->name('project');

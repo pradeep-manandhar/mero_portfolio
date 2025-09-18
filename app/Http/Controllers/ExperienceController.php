@@ -64,6 +64,8 @@ class ExperienceController extends Controller
     public function show(string $id)
     {
         //
+        $view=Experience::findOrFail($id);
+        return view('experiences.view',compact('view'));
     }
 
     /**
@@ -88,5 +90,10 @@ class ExperienceController extends Controller
     public function destroy(string $id)
     {
         //
+        $experience=Experience::findOrFail($id);
+
+        $experience->delete();
+
+        return response()->json(['status'=>'success','message'=>'Experience deleted successfully']);
     }
 }
