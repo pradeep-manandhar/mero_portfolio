@@ -13,7 +13,7 @@ class ExperienceController extends Controller
     public function index()
     {
         //
-        $data = Experience::all();
+        $data = Experience::paginate(2);
         return view('experience', compact('data'));
     }
 
