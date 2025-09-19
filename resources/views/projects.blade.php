@@ -44,13 +44,11 @@
 
         a {
             text-decoration: none;
-            color: #273043;
+            color: #ffffff;
 
         }
 
-        a:hover {
-            color: #9197ae;
-        }
+
     </style>
 
     <h1>Projects</h1>
@@ -69,7 +67,7 @@
     <table class="table table-hover table-striped">
         <thead class="table-dark ">
             <tr>
-                <th>Project Name</th>
+                <th><a href="{{route('project',['sort'=>'name','direction'=>request('direction')==='asc'?'desc':'asc'])}}">Project Name</a></th>
                 <th>User Name</th>
                 <th>Project Description</th>
                 <th>Status</th>

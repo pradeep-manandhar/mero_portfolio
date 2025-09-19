@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -13,17 +14,20 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $sort = $request->get('sort', 'id');
+        $direction = $request->get('direction', 'asc');
 
-        $datas = Project::query()
-            ->when($search, function ($query, $search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('description', 'like', "%{$search}%")
-                    ->orWhere('status', 'like', "%{$search}%");
-            })
+        $datas = Project::when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+        })
+            ->orderBy($sort, $direction)
             ->get();
 
         return view('projects', compact('datas'));
     }
+
 
 
     public function create_form()
@@ -36,7 +40,6 @@ class ProjectController extends Controller
      */
     public function create(Request $request)
     {
-        //
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
@@ -46,12 +49,11 @@ class ProjectController extends Controller
             'end_date' => 'nullable|date|after:start_date',
         ]);
 
-        //for adding image
         $filename = null;
 
         if ($request->hasFile('image')) {
-            $filename = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('uploads/projects'), $filename);
+            // save in storage/app/public/uploads/projects
+            $filename = $request->file('image')->store('uploads/projects', 'public');
         }
 
         Project::create([
@@ -63,7 +65,7 @@ class ProjectController extends Controller
             'end_date' => $request->end_date,
         ]);
 
-        return redirect('/projects')->with('message', 'success on adding new project');
+        return redirect()->route('project')->with('message', 'New project added successfully');
     }
 
     /**
@@ -99,8 +101,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data=Project::findOrFail($id);
-        $filename=$data->image;
+        $data = Project::findOrFail($id);
+        $filename = $data->image;
         //
         $request->validate([
             'name' => 'required|string|max:255',
@@ -111,23 +113,23 @@ class ProjectController extends Controller
             'end_date' => 'nullable|date|after:start_date',
         ]);
 
-        if($request->hasFile('image')){
-            if($data->image && Storage::disk('public')->exists($data->image)){
+        if ($request->hasFile('image')) {
+            if ($data->image && Storage::disk('public')->exists($data->image)) {
                 Storage::disk('public')->delete($data->image);
             }
-            $filename=$request->file('image')->store('uploads/projects','public');
+            $filename = $request->file('image')->store('uploads/projects', 'public');
         }
 
         $data->update([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'status'=>$request->status,
-            'image'=>$filename,
-            'start_date'=>$request->start_date,
-            'end_date'=>$request->end_date,
+            'name' => $request->name,
+            'description' => $request->description,
+            'status' => $request->status,
+            'image' => $filename,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
         ]);
 
-        return redirect()->route('project')->with('message','Projects info updated successfully');
+        return redirect()->route('project')->with('message', 'Projects info updated successfully');
     }
 
     /**
