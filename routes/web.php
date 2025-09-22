@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProjectController;
@@ -78,5 +79,6 @@ Route::get('/courses/edit/{id}',[CourseController::class,'edit'])->name('courses
 Route::put('/courses/edit/{id}',[CourseController::class,'update'])->name('courses.update');
 
 
-
+//API
+Route::get('/dog/random',[ApiController::class,'randomImage']);
 
