@@ -90,3 +90,6 @@ Route::prefix('portfolio')->group(function(){
      Route::get('/experiences', [PortfolioController::class, 'experiences']);
 });
 
+Route::get('/ref', function(){
+    return view('frontend.index');
+});

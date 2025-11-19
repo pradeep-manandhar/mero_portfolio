@@ -2,7 +2,7 @@
 @section('body')
             <div class="content" id="home">
                 <div id="img_div">
-                    <img src="/core_php/collab-training/public/portfolio/images/me.JPG" alt="my_img" id="my_img">
+                    <img src="{{asset('images/profilepic/me.png')}}" alt="my_img" id="my_img">
                 </div>
                 <div class="paragraph">
                     <p>
