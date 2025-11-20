@@ -1,93 +1,96 @@
-body{
+        body {
             /* background-color: rgb(180, 36, 180); */
             border: 10px solid rgb(180, 36, 180);
             background-color: rgb(72, 67, 67);
-            color:white;
+            color: white;
             height: 100%;
             border-radius: 100px;
         }
 
-        .nav_wrapper{
+        .nav_wrapper {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             align-content: start;
             height: 12vh;
             width: 90vw;
-            padding:10px;
+            padding: 10px;
             /* margin:10px 10px 250px 10px; */
             justify-content: space-evenly;
             justify-items: center;
         }
-        .nav_name{
+
+        .nav_name {
             margin: 10px;
             padding: 10px;
         }
-        .nav_container{
+
+        .nav_container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            padding:10px;
-            margin:10px;
+            padding: 10px;
+            margin: 10px;
             /* width: 60%; */
             font-size: 20px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
-        .items{
-            margin:10px;
+
+        .items {
+            margin: 10px;
             text-align: center;
         }
-        #item1:hover, #item2:hover, #item3:hover{
+
+        #item1:hover,
+        #item2:hover,
+        #item3:hover {
             font-size: x-large;
         }
-        .contact_div{
+
+        .contact_div {
             /* display: grid;
             grid-template-columns: 20% auto;
             justify-content: space-around; */
-            border:2px solid black;
-            margin:10px;
-            padding:10px;
+            border: 2px solid black;
+            margin: 10px;
+            padding: 10px;
             font-size: 20px;
             border-radius: 30px;
             background-color: rgba(35, 33, 32, 0.996);
             width: 100px;
             height: 30px;
         }
-        #contact_logo{
-            border:2px solid black;
-            padding:15px;
+
+        #contact_logo {
+            border: 2px solid black;
+            padding: 15px;
         }
-        #item4{
+
+        #item4 {
             text-align: center;
-            color:black;
+            color: black;
         }
-        .content{
-            background-color: rgb(81, 78, 78);
+
+        .links1,
+        .links2 {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            padding: 10px;
-            gap:10px;
-            margin: 10px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            /* height: 35vh;  */
-            height: 100vh;
-            border-radius: 60px;
-        }
-        .links1,.links2{
-            display: grid;
-            grid-template-columns: 1fr 2fr 2fr 1fr ;
+            grid-template-columns: 1fr 2fr 2fr 1fr;
             column-gap: 10%;
         }
-        #linked,#linked1{
-           grid-column-start: 2;
+
+        #linked,
+        #linked1 {
+            grid-column-start: 2;
             grid-column-end: 3;
             grid-row-start: 1;
             grid-row-end: 2;
         }
-        #github,#github1{
-            grid-column-start:3;
-            grid-column-end:4;
+
+        #github,
+        #github1 {
+            grid-column-start: 3;
+            grid-column-end: 4;
         }
 
-        #img_div{
+        #img_div {
             /* border: 2px solid black; */
             /* height:250px;
             width: 250px; */
@@ -96,47 +99,54 @@ body{
             border-radius: 50%;
             margin-left: 20%;
         }
-        #my_img{
+
+        #my_img {
             display: grid;
             justify-self: center;
             /* height: 250px; */
-            height:34vh;
+            height: 34vh;
             border-radius: 50%;
         }
-        .paragraph{
-            padding:10px;
+
+        .paragraph {
+            padding: 10px;
             width: 80%;
         }
-        #skill_div, #contact_div,#exp_div{
+
+        #skill_div,
+        #contact_div,
+        #exp_div {
             display: grid;
             /* width: 100vw; */
             background-color: rgb(81, 78, 78);
             width: 94vw;
             padding: 10px;
-            gap:10px;
+            gap: 10px;
             margin: 10px;
             border-radius: 65px;
 
         }
-          #exp_div{
+
+        #exp_div {
             justify-content: center;
             align-content: center;
-             height: 100vh;
+            height: 100vh;
 
 
-          }
-          #skill_div{
+        }
+
+        #skill_div {
             height: 100vh;
             justify-content: center;
             align-content: center;
-          }
-
-        #about{
-            grid-column-start: 2;
-            width:40%;
         }
 
-        #contact{
+        #about {
+            grid-column-start: 2;
+            width: 40%;
+        }
+
+        #contact {
             grid-column-start: 2;
             /* color: black; */
             background-image: url(contact.jpg);
@@ -144,32 +154,37 @@ body{
             width: 35vw;
             padding: 0vw 5vw 0 4vw;
         }
-        p{
-            color:white;
+
+        p {
+            color: white;
         }
-        a{
+
+        a {
             color: white;
             text-decoration: none;
         }
-        a:hover{
+
+        a:hover {
             color: rgb(180, 36, 180);
             text-decoration: none;
         }
-        input[type=text]:focus{
+
+        input[type=text]:focus {
             width: 50%;
             /* background-color: rgb(180, 36, 180);
             color: white; */
         }
 
-        #message_div{
+        #message_div {
             display: grid;
             grid-template-columns: 1fr 3fr;
             column-gap: 28px;
             row-gap: 10px;
         }
-         #submit{
-            background: linear-gradient(to bottom right,rgb(72, 67, 67),rgb(180, 36, 180));
-            color:white;
+
+        #submit {
+            background: linear-gradient(to bottom right, rgb(72, 67, 67), rgb(180, 36, 180));
+            color: white;
             border-radius: 10px;
             grid-column-start: 2;
             grid-column-end: 3;
@@ -178,36 +193,137 @@ body{
             width: 100px;
             height: 30px;
         }
-         #submit:hover{
-            background: linear-gradient(to bottom right,rgb(180, 36, 180),rgb(72, 67, 67));
+
+        #submit:hover {
+            background: linear-gradient(to bottom right, rgb(180, 36, 180), rgb(72, 67, 67));
             cursor: pointer;
-            color:white;
-        }
-        #color{
-            text-transform:uppercase;
-            font-size:large;
-            color:rgb(180, 36, 180);
-        }
-        #color:hover{
-            text-transform:uppercase;
-            font-size:xx-large;
-            color:rgb(180, 36, 180);
+            color: white;
         }
 
+        #color {
+            text-transform: uppercase;
+            font-size: large;
+            color: rgb(180, 36, 180);
+        }
 
+        #color:hover {
+            text-transform: uppercase;
+            font-size: xx-large;
+            color: rgb(180, 36, 180);
+        }
 
+        /* new refernce css */
+        .content {
+            background-color: rgb(81, 78, 78);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            height: 55vh;
+            border-radius: 60px;
+        }
+
+        .masthead {
+            padding: 3rem 1rem;
+            width: 96%;
+        }
+
+        .masthead .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .masthead .masthead-heading {
+            font-size: 2.75rem;
+            line-height: 2.75rem;
+            text-align: center;
+        }
+
+        .masthead .masthead-subheading {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .masthead .masthead-avatar {
+            width: 15rem;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .masthead-avatar {
+            width: 15rem;
+        }
+
+        .container,
+        .container-fluid,
+        .container-xxl,
+        .container-xl,
+        .container-lg,
+        .container-md,
+        .container-sm {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .divider-custom {
+            margin: 1.25rem 0 1.5rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .divider-custom .divider-custom-line {
+            width: 100%;
+            max-width: 7rem;
+            height: 0.25rem;
+            background-color: #2c3e50;
+            border-radius: 1rem;
+            border-color: #2c3e50;
+        }
+
+        .divider-custom .divider-custom-line:first-child {
+            margin-right: 1rem;
+        }
+
+        .divider-custom .divider-custom-line:last-child {
+            margin-left: 1rem;
+        }
+
+        .divider-custom .divider-custom-icon {
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        .divider-custom.divider-light .divider-custom-line {
+            background-color: #fff;
+        }
+
+        .divider-custom.divider-light .divider-custom-icon {
+            color: #fff;
+        }
 
         @media (min-width: 768px) {
-            body{
+            body {
                 /* background-color: red; */
             }
 
         }
+
         @media (max-width: 768px) {
-            body{
+            body {
                 /* background-color: blue; */
             }
-            #my_img{
-               height:25vh;
+
+            #my_img {
+                height: 25vh;
             }
         }
