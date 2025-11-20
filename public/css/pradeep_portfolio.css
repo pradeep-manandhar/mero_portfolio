@@ -26,7 +26,7 @@
 
         .nav_container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             padding: 10px;
             margin: 10px;
             /* width: 60%; */
@@ -39,11 +39,9 @@
             text-align: center;
         }
 
-        #item1:hover,
-        #item2:hover,
-        #item3:hover {
+        /* #item1:hover, #item2:hover, #item3:hover,#item4:hover, #item5:hover {
             font-size: x-large;
-        }
+        } */
 
         .contact_div {
             /* display: grid;
@@ -67,27 +65,6 @@
         #item4 {
             text-align: center;
             color: black;
-        }
-
-        .links1,
-        .links2 {
-            display: grid;
-            grid-template-columns: 1fr 2fr 2fr 1fr;
-            column-gap: 10%;
-        }
-
-        #linked,
-        #linked1 {
-            grid-column-start: 2;
-            grid-column-end: 3;
-            grid-row-start: 1;
-            grid-row-end: 2;
-        }
-
-        #github,
-        #github1 {
-            grid-column-start: 3;
-            grid-column-end: 4;
         }
 
         #img_div {
@@ -124,26 +101,11 @@
             gap: 10px;
             margin: 10px;
             border-radius: 65px;
-
-        }
-
-        #exp_div {
-            justify-content: center;
-            align-content: center;
-            height: 100vh;
-
-
-        }
-
-        #skill_div {
-            height: 100vh;
-            justify-content: center;
-            align-content: center;
         }
 
         #about {
-            grid-column-start: 2;
-            width: 40%;
+            /* grid-column-start: 2; */
+            width: 98.5%;
         }
 
         #contact {
@@ -310,6 +272,51 @@
         .divider-custom.divider-light .divider-custom-icon {
             color: #fff;
         }
+
+        .page-section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(-1 * var(--bs-gutter-y));
+            margin-right: calc(-0.5 * var(--bs-gutter-x));
+            margin-left: calc(-0.5 * var(--bs-gutter-x));
+        }
+
+        .row>* {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-top: var(--bs-gutter-y);
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .ms-auto {
+            margin-left: auto !important;
+        }
+
+        .me-auto {
+            margin-right: auto !important;
+        }
+
+        .col-lg-4 {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+        }
+
+
 
         @media (min-width: 768px) {
             body {

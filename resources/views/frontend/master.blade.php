@@ -24,6 +24,8 @@
             <div id="item1" class="items"><a href="#home">Home</a></div>
             <div id="item2" class="items"><a href="#about">About</a></div>
             <div id="item3" class="items"><a href="#nav_name">Portfolio</a></div>
+            <div id="item4" class="items"><a href="#about">Skills</a></div>
+            <div id="item5" class="items"><a href="#about">Experience</a></div>
         </div>
 
         <div class="items contact_div" id="item4"><a href="#contact">📞Contact</a></div>

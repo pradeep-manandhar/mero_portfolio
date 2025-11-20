@@ -19,57 +19,52 @@
             <!-- Masthead Subheading-->
             <p class="masthead-subheading font-weight-light mb-0">Student - Laravel Developer - Gamer</p>
         </div>
-
     </div>
 
-    <div class="content masthead bg-primary text-white text-center" id="about">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="{{ asset('images/profilepic/me.png') }}" alt="..." />
-            <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">PRADEEP MANANDHAR</h1>
+    <div class="content page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-heart"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Masthead Subheading-->
-            <p class="masthead-subheading font-weight-light mb-0">Student - Laravel Developer - Gamer</p>
-        </div>
-
-    </div>
-
-
-
-    <div id="skill_div">
-        <div id="about">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages</li>
-                <ul>
-                    <li>C</li>
-                    <li>C++</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
-                <li>Tools</li>
-                <ul>
-                    <li>Visual Studio Code</li>
-                    <li>Git</li>
-                    <li>GitHub</li>
-                </ul>
-            </ul>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">I am an undergraduate computer science student.</p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">I am pursing Bachelors' degree from Tribhuvan University.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="exp_div">
-        <h2>Experience</h2>
-        <ul>
-            <li>Laravel Intern</li>
-        </ul>
+    <div class="content page-section bg-primary text-white mb-0" id="skills">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">Skills</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-heart"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">FRONTEND(HTML, CSS, BOOTSTRAP)</p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">PHP(Laravel, Wordpress)</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div id="contact_div">
         <div id="contact">
             <h2>Contact Me</h2>
