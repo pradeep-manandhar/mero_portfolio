@@ -34,10 +34,10 @@
             <!-- About Section Content-->
             <div class="row">
                 <div class="col-lg-4 ms-auto">
-                    <p class="lead">I am an undergraduate computer science student.</p>
+                    <p class="lead">I am an undergraduate computer science student. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eos eius officia quis quo laborum, ullam delectus doloremque architecto veritatis suscipit molestiae dignissimos cumque nobis quasi illum quam iure saepe?</p>
                 </div>
                 <div class="col-lg-4 me-auto">
-                    <p class="lead">I am pursing Bachelors' degree from Tribhuvan University.</p>
+                    <p class="lead">I am pursing Bachelors' degree from Tribhuvan University. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem temporibus eius ea obcaecati corporis dicta! Dolore vero, minima labore quod ea sequi inventore vel provident, nulla facilis sed consequatur ipsa!</p>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-heart"></i></div>
+                <div class="divider-custom-icon"><i class="fas fa-bolt" style="color:yellow"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
             <!-- About Section Content-->

@@ -80,7 +80,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/1.jpeg') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/1.png') }}" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 2-->
@@ -91,7 +91,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/2.jpeg') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/2.png') }}" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 3-->
@@ -102,7 +102,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/3.jpeg') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/3.png') }}" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 4-->
@@ -113,7 +113,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/4.png') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/4.jpg') }}" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 5-->
@@ -124,7 +124,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/5.jpeg') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/5.jpg') }}" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 6-->
@@ -135,7 +135,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('images/portfolio/6.png') }}" alt="..." />
+                        <img class="img-fluid" src="{{ asset('images/portfolio/6.jpg') }}" alt="..." />
                     </div>
                 </div>
             </div>
