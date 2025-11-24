@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Materialize</title>
+    <title>PRADEEP MANANDHAR</title>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -22,7 +22,7 @@
     <div class="navbar-fixed" id="top">
         <nav class="red darken-2">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center">PRADEEP MANANDHAR</a>
+                <a href="#top" class="brand-logo center">PRADEEP MANANDHAR</a>
                 <ul class="left hide-on-med-and-down">
                     <li class="active"><a href="#">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
@@ -44,7 +44,7 @@
             <div class="center">
                 <h4>I am</h4>
                 <img src="{{ asset('images/profilepic/pp.jpg') }}" alt=""
-                    style="height: 15rem; border-radius:100%;">
+                    style="height: 15rem; border-radius:100%;" class="responsive-img">
             </div>
             <h1 class="text-uppercase">Pradeep Manandhar</h1>
             <h4>Building in laravel, gaming, and designing along the way.</h4>
@@ -52,7 +52,7 @@
     </div>
 
     {{-- About section --}}
-    <div class="card-panel"
+    <div class="card-panel responsive-img"
         style="height:90vh;background-image:url('/images/portfolio/about.jpg'); background-size:cover; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
         id="about">
         <span class="red-text text-darken-2 left-align" style="display: block; margin-top:100px;">
@@ -69,7 +69,7 @@
     </div>
 
     {{-- multiple projects --}}
-    <div class="card-panel red-text text-darken-2"
+    <div class="card-panel red-text text-darken-2 "
         style="padding: 20px; height:96vh;background-image:url('/images/portfolio/project2.jpg'); background-size:cover; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
         id="projects">
         <div class="row" style="margin: 0;">
@@ -80,7 +80,7 @@
                 <div class="card" style="height: 500px; width: 100%; max-width: 350px; margin: 0 auto;">
                     <div class="card-image waves-effect waves-block waves-light"
                         style="height: 350px; overflow: hidden;">
-                        <img class="activator" src="{{ asset('images/portfolio/1.png') }}"
+                        <img class="activator responsive-img" src="{{ asset('images/portfolio/1.png') }}"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="card-content">
@@ -100,7 +100,7 @@
                 <div class="card" style="height: 500px; width: 100%; max-width: 350px; margin: 0 auto;">
                     <div class="card-image waves-effect waves-block waves-light"
                         style="height: 350px; overflow: hidden;">
-                        <img class="activator" src="{{ asset('images/portfolio/2.png') }}"
+                        <img class="activator responsive-img" src="{{ asset('images/portfolio/2.png') }}"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="card-content">
@@ -120,7 +120,7 @@
                 <div class="card" style="height: 500px; width: 100%; max-width: 350px; margin: 0 auto;">
                     <div class="card-image waves-effect waves-block waves-light"
                         style="height: 350px; overflow: hidden;">
-                        <img class="activator" src="{{ asset('images/portfolio/3.png') }}"
+                        <img class="activator responsive-img" src="{{ asset('images/portfolio/3.png') }}"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="card-content">
@@ -239,10 +239,10 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Contact Me</h5>
-                    <p class="grey-text text-lighten-4">sayamipradeep5@gmail.com</p>
+                    <a class="grey-text text-lighten-3" href="#"><i class="material-icons left">mail</i>sayamipradeep5@gmail.com</a>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">AROUND THE WEB</h5>
                     <div>
                         <a class="grey-text text-lighten-3" href="#!"
                             style="font-size: 2rem; margin-right: 30px; transition: color 0.3s;">

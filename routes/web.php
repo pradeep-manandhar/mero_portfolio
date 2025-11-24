@@ -98,3 +98,7 @@ Route::get('/ref', function(){
 Route::get('/hero', function(){
     return view('frontend.hero');
 });
+
+Route::get('/res', function(){
+    return view('frontend.responsive');
+});
