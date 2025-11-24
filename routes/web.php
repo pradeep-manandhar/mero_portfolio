@@ -93,3 +93,8 @@ Route::prefix('portfolio')->group(function(){
 Route::get('/ref', function(){
     return view('frontend.index');
 });
+
+
+Route::get('/hero', function(){
+    return view('frontend.hero');
+});
