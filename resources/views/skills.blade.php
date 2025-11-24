@@ -85,12 +85,12 @@
                     <td>{{ $value->skill_name }}</td>
                     <td>{{ $value->skill_category }}</td>
                     <td>{{ $value->skill_level }}</td>
-                    <td>now</td>
-                    <td>now</td>
+                    <td>{{$value->created_at}}</td>
+                    <td>{{$value->updated_at}}</td>
                     <td>
-                        <a href="" type="button" class="btn btn-info">View</a>
-                        <a href="" class="btn btn-success">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{route('skills.view', $value->id)}}" type="button" class="btn btn-info">View</a>
+                        <a href="{{route('skills.edit',$value->id)}}" class="btn btn-success">Edit</a>
+                        <a href="#" class="btn btn-danger" data-id="{{$value->id}}">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -117,13 +117,14 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "/core_php/collab-training/routes.php?route=skills&action=delete",
-                            type: "POST",
+                            url: "/skills/delete/" + id,
+                            type: "DELETE",
                             data: {
-                                skill_id: id
+                                _token: "{{ csrf_token() }}"
                             },
-                            success: function(response) {
-                                let res = JSON.parse(response);
+                            success: function(res) {
+                                // console.log(response);
+                                // let res = JSON.parse(response);
                                 if (res.status === "success") {
                                     Swal.fire(
                                         "Deleted!",

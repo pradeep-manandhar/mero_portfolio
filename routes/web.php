@@ -35,6 +35,11 @@ Route::get("/user_role", function(){
 Route::get('/skills', [SkillController::class,'index'])->name('skills');
 Route::get('/skills/create', [SkillController::class,'create_form'])->name('skills.create');
 Route::post('/skills/create',[SkillController::class,'store']);
+Route::get('/skills/view/{id}',[SkillController::class,'show'])->name('skills.view');
+Route::get('/skills/edit/{id}',[SkillController::class,'edit'])->name('skills.edit');
+Route::put('/skills/edit/{id}',[SkillController::class,'update'])->name('skills.update');
+Route::delete('/skills/delete/{id}',[SkillController::class, 'destroy']);
+
 
 //Experience Routes
 Route::get('/experience', [ExperienceController::class,'index'])->name('experience');
@@ -42,6 +47,9 @@ Route::get('/experience/create',[ExperienceController::class,'create_form'])->na
 Route::post('/experience/create',[ExperienceController::class,'store']);
 Route::delete('/experience/{id}',[ExperienceController::class,'destroy'])->name('experience.destroy');
 Route::get('/experience/view/{id}',[ExperienceController::class,'show'])->name('experience.view');
+Route::get('/experience/edit/{id}',[ExperienceController::class,'edit'])->name('experience.edit');
+Route::put('/experience/edit/{id}',[ExperienceController::class,'update'])->name('experience.update');
+
 
 //Project routes
 Route::get('/projects', [ProjectController::class,'index'])->name('project');

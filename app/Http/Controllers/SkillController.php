@@ -53,6 +53,8 @@ class SkillController extends Controller
     public function show(string $id)
     {
         //
+        $edit=Skills::findOrFail($id);
+        return view('skills.view', compact('edit'));
     }
 
     /**
@@ -61,6 +63,8 @@ class SkillController extends Controller
     public function edit(string $id)
     {
         //
+        $edit=Skills::findOrFail($id);
+        return view('skills.edit', compact('edit'));
     }
 
     /**
@@ -69,6 +73,23 @@ class SkillController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $data=Skills::findOrFail($id);
+        // dd($id);
+        $validation=$request->validate(
+            [
+                'skill_name'=>'required|string',
+                'skill_category'=>'required|in:programming,cloud computing,cybersecurity,networking,hardware,machine learning/AI,data mining,database management',
+                'skill_level'=>'required|in:beginner,intermediate,expert',
+            ]
+        );
+
+        $data->update([
+            'skill_name'=>$request->skill_name,
+            'skill_category'=>$request->skill_category,
+            'skill_level'=>$request->skill_level,
+        ]);
+
+        return redirect()->route('skills')->with('message', 'Skills info updated successfully');
     }
 
     /**
@@ -77,5 +98,11 @@ class SkillController extends Controller
     public function destroy(string $id)
     {
         //
+        // dd($id);
+        $skill=Skills::findOrFail($id);
+
+        $skill->delete();
+
+        return response()->json(['status' => 'success', 'message' => 'Skill deleted successfully']);
     }
 }

@@ -13,6 +13,8 @@ class Skills extends Model
     protected $fillable=[
         'skill_name',
         'skill_category',
-        'skill_level'
+        'skill_level',
+        'created_at',
+        'updated_at'
     ];
 }

@@ -74,6 +74,7 @@ class ExperienceController extends Controller
     public function edit(string $id)
     {
         //
+        
     }
 
     /**

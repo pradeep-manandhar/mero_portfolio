@@ -162,7 +162,7 @@
                 </div>
                 <div class="col s12 m6 l4 left-align" style="padding: 20px 30px; width:300px;">
                     <div style="margin-bottom: 50px;">
-                        <h5>PHP (Backend)</h5>
+                        <h5>Backend (PHP)</h5>
                         <div class="progress" style="height: 10px;">
                             <div class="determinate green" style="width: 25%"></div>
                         </div>
