@@ -74,7 +74,8 @@ class ExperienceController extends Controller
     public function edit(string $id)
     {
         //
-        
+        $edit=Experience::findOrFail($id);
+        return view('experiences.edit',compact('edit'));
     }
 
     /**
@@ -83,6 +84,23 @@ class ExperienceController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $data=Experience::findOrFail($id);
+
+        $request->validate([
+            'title'=>'required|string',
+            'description'=>'required|string',
+            'organization'=>'required|string',
+            'location'=>'required|string',
+        ]);
+
+        $data->update([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'organization'=>$request->organization,
+            'location'=>$request->location,
+        ]);
+
+        return redirect()->route('experience')->with('message','Experience updated successfully');
     }
 
     /**

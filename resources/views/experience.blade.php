@@ -95,7 +95,7 @@
                     <td>{{ $datas->end_date }}</td>
                     <td>
                     <a href="{{route('experience.view',$datas->id)}}" type="button" class="btn btn-info">View</a>
-                    <a href="" class="btn btn-success">Edit</a>
+                    <a href="{{route('experience.edit',$datas->id)}}" class="btn btn-success">Edit</a>
                     <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="{{$datas->id}}">Delete</a>
                     </td>
 
@@ -126,10 +126,10 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "/experience/"+id,
+                            url: "/experience/delete/"+id,
                             type: "DELETE",
                             data: {
-                                _token="{{csrf_token()}}"
+                                _token:"{{csrf_token()}}"
                             },
                             success: function(response) {
 

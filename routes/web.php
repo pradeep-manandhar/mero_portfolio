@@ -45,7 +45,7 @@ Route::delete('/skills/delete/{id}',[SkillController::class, 'destroy']);
 Route::get('/experience', [ExperienceController::class,'index'])->name('experience');
 Route::get('/experience/create',[ExperienceController::class,'create_form'])->name('experience.create');
 Route::post('/experience/create',[ExperienceController::class,'store']);
-Route::delete('/experience/{id}',[ExperienceController::class,'destroy'])->name('experience.destroy');
+Route::delete('/experience/delete/{id}',[ExperienceController::class,'destroy'])->name('experience.destroy');
 Route::get('/experience/view/{id}',[ExperienceController::class,'show'])->name('experience.view');
 Route::get('/experience/edit/{id}',[ExperienceController::class,'edit'])->name('experience.edit');
 Route::put('/experience/edit/{id}',[ExperienceController::class,'update'])->name('experience.update');

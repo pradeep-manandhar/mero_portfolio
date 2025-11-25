@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('body')
     <h1>Edit {{ $edit->name }}'s data</h1>
-    <form action="{{ route('projects.update', $edit) }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('projects.update', $edit->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
 
