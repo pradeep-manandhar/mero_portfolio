@@ -102,6 +102,7 @@ class ProjectController extends Controller
     public function update(Request $request, string $id)
     {
         $data = Project::findOrFail($id);
+
         $filename = $data->image;
         //
         $request->validate([
@@ -109,8 +110,8 @@ class ProjectController extends Controller
             'description' => 'required|string|max:255',
             'status' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'start_date' => 'required|date|before:end_date',
-            'end_date' => 'nullable|date|after:start_date',
+            // 'start_date' => 'required|date|before:end_date',
+            // 'end_date' => 'nullable|date|after:start_date',
         ]);
 
         if ($request->hasFile('image')) {
@@ -125,8 +126,8 @@ class ProjectController extends Controller
             'description' => $request->description,
             'status' => $request->status,
             'image' => $filename,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            // 'start_date' => $request->start_date,
+            // 'end_date' => $request->end_date,
         ]);
 
         return redirect()->route('project')->with('message', 'Projects info updated successfully');

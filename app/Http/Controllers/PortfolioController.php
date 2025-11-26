@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Project;
+use App\Models\Skills;
+use App\Models\Experience;
 
 class PortfolioController extends Controller
 {
@@ -12,7 +16,14 @@ class PortfolioController extends Controller
     public function index()
     {
         //
-        return view('frontend.homepage');
+        $user = User::first(); // or Auth::user() if logged in
+        $projects = Project::all();
+        $skills = Skills::all();
+        $experience = Experience::all();
+
+        return view('frontend.hero', compact('user', 'projects', 'skills', 'experience'));
+
+        // return view('frontend.homepage');
     }
 
     public function projects(){

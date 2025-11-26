@@ -4,6 +4,15 @@
     <form action="{{ route('projects.update', $edit->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <div class="mb-3">
             <label for="name" class="form-label">Project Name:</label>
@@ -44,12 +53,12 @@
 
             @if ($edit->image)
                 <div class="mt-2">
-                    <img src="{{ asset('Storage/' . $edit->image) }}" alt="Current Image" width="120">
+                    <img src="{{ asset('storage/' . $edit->image) }}" alt="Current Image" width="120">
                 </div>
             @endif
         </div>
 
 
-        <button class="btn btn-success">Update</button>
+        <button class="btn btn-success" type="submit">Update</button>
     </form>
 @endsection

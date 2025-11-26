@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('username');
+            $table->text('introduction');
+            $table->text('description');
+            $table->string('github');
+            $table->string('linkedin');
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->string('profile_picture')->nullable();
