@@ -46,7 +46,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "" + id,
+                            url: "/contact/delete/" + id,
                             type: "DELETE",
                             data: {
                                 _token: "{{ csrf_token() }}"

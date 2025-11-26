@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $user->fullname }}</title>
-    <link rel="icon" type="image/jpg" href="{{ $user->profile_picture }}">
+    <link rel="icon" type="image/jpg" href="{{ asset('storage/' . $user->profile_picture) }}">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -212,17 +212,17 @@
         <span class="red-text text-darken-2 left-align" style="display: block; margin-top: 40px; margin-left:3rem;">
             <h1>Experience</h1>
             @foreach ($experience as $exp)
-
-            @php
-                $start = Carbon\Carbon::parse($exp->start_date);
-                $end = Carbon\Carbon::parse($exp->end_date);
-                $days = $start->diffInDays($end);
-            @endphp
-            <div class="left-align">
-                <p style="border-bottom:1px solid red; margin:1rem;">{{ $exp->title }} | {{$exp->location}} | {{$exp->organization}} | {{$days}} days</p>
-                {{-- <p style="border-bottom:1px solid red; margin:1rem;">Codniv | Laravel Developer | 2 years</p>
+                @php
+                    $start = Carbon\Carbon::parse($exp->start_date);
+                    $end = Carbon\Carbon::parse($exp->end_date);
+                    $days = $start->diffInDays($end);
+                @endphp
+                <div class="left-align">
+                    <p style="border-bottom:1px solid red; margin:1rem;">{{ $exp->title }} | {{ $exp->location }} |
+                        {{ $exp->organization }} | {{ $days }} days</p>
+                    {{-- <p style="border-bottom:1px solid red; margin:1rem;">Codniv | Laravel Developer | 2 years</p>
                 <p style="border-bottom:1px solid red; margin:1rem;">Google | Full Stack Developer | 1 year</p> --}}
-            </div>
+                </div>
             @endforeach
         </span>
     </div>
@@ -234,34 +234,45 @@
             style="display: block; margin-top: 40px; margin-left:20rem; width:40vw;">
             <h1>Contact</h1>
             <div class="row">
-                <form class="col s12">
+                <form class="col s12" method="POST" action="/contact/create">
+                    @csrf
+                    @if ($errors->any())
+                        <div style="color: red">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach ()
+                            </ul>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" type="text" class="validate">
+                            <input id="icon_prefix" type="text" class="validate" name="first_name"
+                                value="{{ old('first_name') }}">
                             <label for="icon_prefix" class="red-text">First Name</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" type="text" class="validate">
+                            <input id="icon_prefix" type="text" class="validate" name="last_name" value="{{ old('last_name') }}">
                             <label for="icon_prefix" class="red-text">Last Name</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input id="icon_telephone" type="tel" class="validate">
+                            <input id="icon_telephone" type="tel" class="validate" name="mobile_num" value="{{ old('mobile_num') }}">
                             <label for="icon_telephone" class="red-text">Mobile Number</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">email</i>
-                            <input id="icon_telephone" type="tel" class="validate">
+                            <input id="icon_telephone" type="tel" class="validate" name="email" value="{{ old('email') }}">
                             <label for="icon_telephone" class="red-text">Email Address</label>
                         </div>
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea id="textarea1" class="materialize-textarea" name="message" value="{{ old('message') }}"></textarea>
                             <label for="textarea1" class="red-text">Message</label>
                         </div>
-                        <a class="waves-effect waves-light btn red"><i
-                                class="material-icons left red">send</i>Submit</a>
+                        <button class="waves-effect waves-light btn red" type="submit"><i
+                                class="material-icons left red">send</i>Submit</button>
                     </div>
                 </form>
             </div>

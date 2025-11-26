@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Skills;
 use App\Models\Experience;
@@ -26,32 +28,57 @@ class PortfolioController extends Controller
         // return view('frontend.homepage');
     }
 
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('frontend.dashboard');
     }
-    public function contact(){
+    public function contact()
+    {
         return view('frontend.contact');
     }
 
 
-    public function projects(){
+    public function projects()
+    {
         return view('frontend.projects');
     }
 
-    public function skills(){
+    public function skills()
+    {
         return view('frontend.skills');
     }
 
-    public function experiences(){
+    public function experiences()
+    {
         return view('frontend.experience');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function contact_create(Request $request)
     {
         //
+        // dd('hello');
+        $request->validate(
+            [
+                'first_name' => 'required|string',
+                'last_name' => 'required',
+                'email' => 'email',
+                'mobile_num' => 'nullable|string',
+                'message' => 'required|string',
+            ]
+        );
+
+        Contact::create([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'mobile_num'=>$request->mobile_num,
+            'message'=>$request->message,
+        ]);
+
+        return redirect('/')->with('message','Contacted successfully');
     }
 
     /**
@@ -92,5 +119,10 @@ class PortfolioController extends Controller
     public function destroy(string $id)
     {
         //
+        $data=Contact::findOrFail($id);
+
+        $data->delete();
+
+        return redirect();
     }
 }

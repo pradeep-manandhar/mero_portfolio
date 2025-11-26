@@ -75,6 +75,9 @@ Route::get('/projects/view/{id}',[ProjectController::class,'show'])->name('proje
 
 //Contact
 Route::get('/contact',[PortfolioController::class,'contact']);
+Route::post('/contact/create',[PortfolioController::class,'contact_create']);
+Route::delete('/contact/delete/{id}',[PortfolioController::class,'destroy']);
+
 });
 //API
 Route::get('/dog/random',[ApiController::class,'randomImage']);
