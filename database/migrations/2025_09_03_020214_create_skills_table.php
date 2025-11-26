@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('skill_name');
             $table->enum('skill_category',['programming','cloud computing','cybersecurity','networking','hardware','machine learning/AI','data mining','database management']);
             $table->enum('skill_level',['beginner','intermediate','expert']);
-            $table->date('created_at')->nullable();
-            $table->date('updated_at');
+            // $table->date('created_at')->nullable();
+            // $table->date('updated_at');
             // $table->user_id();
             $table->timestamps();
         });
