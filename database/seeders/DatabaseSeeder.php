@@ -16,11 +16,15 @@ class DatabaseSeeder extends Seeder
     {
 
         User::create([
-            'fullname' => 'Test User',
-            'email' => 'test@example.com',
-            'username' => 'Dummy',
-            'phone_number' => '13123',
-            'profile_picture' => '/uploads/gif',
+            'fullname' => 'Pradeep Manandhar',
+            'email' => 'sayamipradeep5@gmail.com',
+            'introduction'=>'',
+            'description'=>'',
+            'linkedin'=>'',
+            'github'=>'',
+            'username' => 'man_and_her',
+            'phone_number' => '9808699837',
+            'profile_picture' => 'uploads/profile/profile_pic.jpg',
             'gender' => 'male',
             'agreed_to_terms' => true,
             'password' => 'hash',

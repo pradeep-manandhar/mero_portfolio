@@ -26,6 +26,14 @@ class PortfolioController extends Controller
         // return view('frontend.homepage');
     }
 
+    public function dashboard(){
+        return view('frontend.dashboard');
+    }
+    public function contact(){
+        return view('frontend.contact');
+    }
+
+
     public function projects(){
         return view('frontend.projects');
     }

@@ -21,6 +21,7 @@ Route::get('/register', [AuthController::class, 'registerPage']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/login', [AuthController::class, 'loginPage']);
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/user' , function(){
@@ -38,6 +39,7 @@ Route::get("/user_role", function(){
 Route::middleware(['auth'])->group(function(){
 //Porfolio
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
+Route::get('/dashboard', [PortfolioController::class, 'dashboard'])->name('dashboard');
 Route::get('/profile', [UserController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/edit/{id}', [UserController::class, 'update'])->name('profile.update');
 
@@ -70,6 +72,9 @@ Route::put('/projects/edit/{id}',[ProjectController::class,'update'])->name('pro
 Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 Route::get('/projects/view/{id}',[ProjectController::class,'show'])->name('projects.show');
 
+
+//Contact
+Route::get('/contact',[PortfolioController::class,'contact']);
 });
 //API
 Route::get('/dog/random',[ApiController::class,'randomImage']);

@@ -9,15 +9,29 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function loginPage(){
+    public function loginPage()
+    {
         return view('auth.login');
     }
 
-    public function registerPage(){
+    public function registerPage()
+    {
         return view('auth.register');
     }
 
-    public function login(Request $request){
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Logged out successfully');
+    }
+
+    public function login(Request $request)
+    {
         $validated = $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -26,19 +40,20 @@ class AuthController extends Controller
         //check in DB
         $user = User::where('email', $request->email)->get();
         if (!$user) {
-            return redirect()->back()->with(['error'=> 'user not found']);
+            return redirect()->back()->with(['error' => 'user not found']);
         }
 
         $attempt = Auth::attempt($validated);
-        
-        if($attempt == false){
-            return redirect()->back()->with(['error'=> 'password not correct']);
+
+        if ($attempt == false) {
+            return redirect()->back()->with(['error' => 'password not correct']);
         }
 
         return redirect('/skills')->with(['success' => "successfully logged in"]);
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $request->validate([
             'fullname' => 'required|string|max:255',
             'email' => 'required|string|max:255|email'
@@ -46,7 +61,7 @@ class AuthController extends Controller
 
         if ($request->agree == 'on') {
             $agree = true;
-        }else {
+        } else {
             $agree = false;
         }
         User::create([
