@@ -46,7 +46,8 @@ class UserController extends Controller
     public function edit()
     {
         //
-        $edit = User::findOrFail(2);
+        $edits = User::where('fullname' ,'like' ,'Pradeep Manandhar')->get();
+        $edit= $edits->first();
         return view('frontend.profile', compact('edit'));
     }
 
