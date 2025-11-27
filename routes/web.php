@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/', [PortfolioController::class, 'index'])->name('home');
 
 // Route::get('/register', [AuthController::class, 'registerPage']);
 // Route::post('/register', [AuthController::class, 'register']);
@@ -38,7 +39,6 @@ Route::get("/user_role", function(){
 
 Route::middleware(['auth'])->group(function(){
 //Porfolio
-Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/dashboard', [PortfolioController::class, 'dashboard'])->name('dashboard');
 Route::get('/profile', [UserController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/edit/{id}', [UserController::class, 'update'])->name('profile.update');
