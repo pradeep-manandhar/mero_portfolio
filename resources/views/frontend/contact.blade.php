@@ -13,20 +13,22 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($data as $contact)
             <tr>
-                <td>PRADEEP</td>
-                <td>MANANDHAR</td>
-                <td>pradeepmanandhar2059@gmail.com</td>
-                <td>9885149093</td>
-                <td>Hello World</td>
+                <td>{{$contact->first_name}}</td>
+                <td>{{$contact->last_name}}</td>
+                <td>{{$contact->email}}</td>
+                <td>{{$contact->mobile_num}}</td>
+                <td>{{$contact->message}}</td>
                 <td>
                     <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="">
                         Delete</a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
-    {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
@@ -68,5 +70,5 @@
                 });
             });
         });
-    </script> --}}
+    </script>
 @endsection

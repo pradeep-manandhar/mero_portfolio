@@ -80,7 +80,7 @@
             </section>
             @foreach ($projects as $project)
                 <div class="col s12 m6 l4" style="padding: 15px;">
-                    <div class="card" style="height: 500px; width: 100%; max-width: 350px; margin: 0 auto;">
+                    <div class="card" style="height: 32rem; width: 20rem; max-width: 100rem; margin: 0 auto;">
                         <div class="card-image waves-effect waves-block waves-light"
                             style="height: 350px; overflow: hidden;">
                             <img class="activator responsive-img" src="{{ asset('storage/' . $project->image) }}"
@@ -174,7 +174,7 @@
                                 }
                             @endphp
                             <div class="progress" style="height:10px;">
-                                <div class="determinate blue" style="width: {{ $percentage }}%;"></div>
+                                <div class="determinate red" style="width: {{ $percentage }}%;"></div>
                             </div>
                         </div>
                 @endforeach

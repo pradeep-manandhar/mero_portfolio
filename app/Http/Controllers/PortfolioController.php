@@ -34,7 +34,8 @@ class PortfolioController extends Controller
     }
     public function contact()
     {
-        return view('frontend.contact');
+        $data = Contact::all();
+        return view('frontend.contact', compact('data'));
     }
 
 
@@ -71,14 +72,14 @@ class PortfolioController extends Controller
         );
 
         Contact::create([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'email'=>$request->email,
-            'mobile_num'=>$request->mobile_num,
-            'message'=>$request->message,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'mobile_num' => $request->mobile_num,
+            'message' => $request->message,
         ]);
 
-        return redirect('/')->with('message','Contacted successfully');
+        return redirect('/')->with('message', 'Contacted successfully');
     }
 
     /**
@@ -119,10 +120,10 @@ class PortfolioController extends Controller
     public function destroy(string $id)
     {
         //
-        $data=Contact::findOrFail($id);
+        $data = Contact::findOrFail($id);
 
         $data->delete();
 
-        return redirect();
+        return response()->json(['status' => 'success', 'message' => 'Contact deleted successfully']);
     }
 }
