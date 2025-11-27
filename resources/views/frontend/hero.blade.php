@@ -177,32 +177,11 @@
                                 <div class="determinate red" style="width: {{ $percentage }}%;"></div>
                             </div>
                         </div>
+                    </div>
                 @endforeach
 
-                {{-- <div style="margin-bottom: 50px;">
-                        <h5>Backend (Laravel)</h5>
-                        <div class="progress" style="height: 10px;">
-                            <div class="determinate red" style="width: 45%"></div>
-                        </div>
-                    </div> --}}
             </div>
-            {{-- <div class="col s12 m6 l4 left-align" style="padding: 20px 30px; width:300px;">
-                    <div style="margin-bottom: 50px;">
-                        <h5>Backend (PHP)</h5>
-                        <div class="progress" style="height: 10px;">
-                            <div class="determinate green" style="width: 25%"></div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 50px;">
-                        <h5>Frontend (JavaScript)</h5>
-                        <div class="progress" style="height: 10px;">
-                            <div class="determinate orange" style="width: 40%"></div>
-                        </div>
-                    </div>
-                </div> --}}
-    </div>
-    </span>
+        </span>
     </div>
 
     {{-- experience --}}
@@ -254,17 +233,20 @@
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" type="text" class="validate" name="last_name" value="{{ old('last_name') }}">
+                            <input id="icon_prefix" type="text" class="validate" name="last_name"
+                                value="{{ old('last_name') }}">
                             <label for="icon_prefix" class="red-text">Last Name</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input id="icon_telephone" type="tel" class="validate" name="mobile_num" value="{{ old('mobile_num') }}">
+                            <input id="icon_telephone" type="tel" class="validate" name="mobile_num"
+                                value="{{ old('mobile_num') }}">
                             <label for="icon_telephone" class="red-text">Mobile Number</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">email</i>
-                            <input id="icon_telephone" type="tel" class="validate" name="email" value="{{ old('email') }}">
+                            <input id="icon_telephone" type="tel" class="validate" name="email"
+                                value="{{ old('email') }}">
                             <label for="icon_telephone" class="red-text">Email Address</label>
                         </div>
                         <div class="input-field col s12">
