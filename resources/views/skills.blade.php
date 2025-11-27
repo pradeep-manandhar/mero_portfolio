@@ -69,7 +69,6 @@
     <table class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
             <tr>
-                <th>User's Name</th>
                 <th>Skill Name</th>
                 <th>Skill Category</th>
                 <th>Skill Level</th>
@@ -81,7 +80,6 @@
         <tbody>
             @foreach ($data as $value)
                 <tr>
-                    <td>Username</td>
                     <td>{{ $value->skill_name }}</td>
                     <td>{{ $value->skill_category }}</td>
                     <td>{{ $value->skill_level }}</td>

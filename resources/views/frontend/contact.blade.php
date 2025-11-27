@@ -21,7 +21,7 @@
                 <td>{{$contact->mobile_num}}</td>
                 <td>{{$contact->message}}</td>
                 <td>
-                    <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="">
+                    <a href="javascript:void(0);" class="btn btn-danger delete-btn" data-id="{{$contact->id}}">
                         Delete</a>
                 </td>
             </tr>

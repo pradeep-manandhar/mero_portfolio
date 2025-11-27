@@ -68,7 +68,6 @@
         <thead class="table-dark ">
             <tr>
                 <th><a href="{{route('project',['sort'=>'name','direction'=>request('direction')==='asc'?'desc':'asc'])}}">Project Name</a></th>
-                <th>User Name</th>
                 <th>Project Description</th>
                 <th>Status</th>
                 <th>Start Date</th>
@@ -80,7 +79,6 @@
             @foreach ($datas as $data)
                 <tr>
                     <td>{{ $data->name }}</td>
-                    <td>Pradeep</td>
                     <td>{{ $data->description }}</td>
                     <td>{{ $data->status }}</td>
                     <td>{{ $data->start_date }}</td>

@@ -59,11 +59,11 @@
             @endforeach
     </select>
 
-    <label for="Username">User:</label>
+    {{-- <label for="Username">User:</label>
     <select name="username" id="username" class="form-select">
         <option value=""> Select a username </option>
 
-    </select>
+    </select> --}}
 
     <div class="mb-3">
         <label for="project_image" class="form-label"></label>

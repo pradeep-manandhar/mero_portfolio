@@ -73,7 +73,6 @@
     <table class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
             <tr>
-                <th>User Name</th>
                 <th>Title</th>
                 <th>Organization</th>
                 <th>Location</th>
@@ -86,7 +85,6 @@
         <tbody>
             @foreach ($data as $datas)
                 <tr>
-                    <td>Pradeep</td>
                     <td>{{ $datas->title }}</td>
                     <td>{{ $datas->organization }}</td>
                     <td>{{ $datas->location }}</td>

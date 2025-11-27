@@ -33,12 +33,6 @@
         </ul>
         @endif
     </div>
-    <div class="mb-3">
-        <label for="username">Username:</label>
-        <select name="username" id="username" class="form-select" aria-label="Default select example" value="{{old('username')}}">
-            <option value="">Select the username:</option>
-        </select>
-    </div>
 
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
