@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -23,7 +20,11 @@
     <div class="navbar-fixed" id="top">
         <nav class="red darken-2">
             <div class="nav-wrapper">
-                <a href="#top" class="brand-logo center">{{ $user->fullname }}</a>
+                <a href="#top" class="brand-logo center cols s12 m6 l4"
+                    style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70vw;">{{ $user->fullname }}</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
                 <ul class="left hide-on-med-and-down">
                     <li class="active"><a href="#">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
@@ -37,6 +38,15 @@
                 </ul>
             </div>
         </nav>
+
+        <!-- Mobile menu (SideNav) -->
+        <ul class="sidenav" id="mobile-demo" style="background:red;">
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+        </ul>
     </div>
 
     <div class="card-panel"
@@ -45,7 +55,7 @@
             <div class="center">
                 <h4>I am</h4>
                 <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="my profile picture"
-                    style="height: 15rem; border-radius:100%;">
+                    style="max-height: 15rem;" class="responsive-img circle">
             </div>
             <h1 class="text-uppercase">{{ $user->fullname }}</h1>
             <h4>{{ $user->introduction }}</h4>
@@ -53,13 +63,13 @@
     </div>
 
     {{-- About section --}}
-    <div class="card-panel responsive-img"
-        style="height:90vh;background-image:url('/images/portfolio/about.jpg'); background-size:cover; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
+    <div class="card-panel about-section"
+        style="height:90vh;background-image:url('/images/portfolio/about.jpg'); background-size:cover; background-position: center; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
         id="about">
         <span class="red-text text-darken-2 left-align" style="display: block; margin-top:100px;">
             <h1>About</h1>
             <div class="row">
-                <div class="col s12 m6 l4 justify-align">
+                <div class="col s12 m6 l4">
                     <p>{{ $user->description }}</p>
                 </div>
                 <div class="col s12 m6 l4 justify-align">
@@ -87,7 +97,7 @@
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Project {{ $project->name }}<i
+                            <span class="card-title activator grey-text text-darken-4">{{ $project->name }}<i
                                     class="material-icons right">more_vert</i></span>
                             <p><a href="#">Visit the site</a></p>
                         </div>
@@ -140,9 +150,6 @@
                 </div>
             </div> --}}
         </div>
-
-
-
     </div>
 
     {{-- skills --}}
@@ -207,13 +214,13 @@
     </div>
     {{-- contact --}}
     <div class="card-panel"
-        style="height:90vh;background-image:url('/images/portfolio/contact1.jpg'); background-size:cover; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
+        style="height:90vh;background-image:url('/images/portfolio/contact1.jpg'); background-size:cover; backgorund-position:center; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;"
         id="contact">
         <span class="red-text text-darken-2 center-align"
             style="display: block; margin-top: 40px; margin-left:20rem; width:40vw;">
             <h1>Contact</h1>
             <div class="row">
-                <form class="col s12" method="POST" action="/contact/create">
+                <form class="col s12 m10 l12" method="POST" action="/contact/create">
                     @csrf
                     @if ($errors->any())
                         <div style="color: red">
@@ -293,6 +300,14 @@
         </div>
     </footer>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
+        });
+    </script>
 </body>
 
 </html>
